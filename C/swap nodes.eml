@@ -1,0 +1,97 @@
+MIME-Version: 1.0
+Date: Sun, 23 Oct 2022 19:26:19 +0530
+From: Sanjukta Goswami <sanjukta1goswami@gmail.com>
+Subject:
+Message-ID:
+ <CADSXYvgaOt8JHDdYNTr+qchmPwT9Po=MMvU_UwYAb054sck99w@mail.gmail.com>
+To: "annukri5110nwd@gmail.com" <annukri5110nwd@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<div dir=3D"ltr"><pre class=3D"gmail-aLF-aPX-K0-aPE" style=3D"font-family:&=
+quot;Courier New&quot;,Courier,monospace,arial,sans-serif; margin-top:0px; =
+margin-bottom:0px; white-space:pre-wrap; color:rgb(0,0,0); font-size:14px">=
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+struct node{
+    int data;
+    struct node *next;
+};
+struct node *head=3DNULL;
+struct node *create(struct node *head,int i){
+    struct node *ptr;
+    ptr=3D(struct node *) malloc(sizeof(struct node));
+    struct node *p;
+    printf(&quot;Enter value[%d] of list:&quot;,i);
+    scanf(&quot;%d&quot;,&amp;ptr-&gt;data);
+    ptr-&gt;next=3DNULL;
+    if(head=3D=3DNULL){
+        head=3Dptr;
+        p=3Dhead;
+        return(head);
+    }
+    else{
+        p-&gt;next=3Dptr;
+        p=3Dptr;
+        return(head);
+    }
+}
+void swap_node(struct node **ptr,int x,int y){
+    if(x=3D=3Dy){
+        return;
+    }
+    struct node *currx=3D*ptr,*prevx=3DNULL;
+    while(currx&amp;&amp;currx-&gt;data!=3Dx){
+        prevx=3Dcurrx;
+        currx=3Dcurrx-&gt;next;
+    }
+    struct node *curry=3D*ptr,*prevy=3DNULL;
+    while(curry&amp;&amp;curry-&gt;data!=3Dy){
+        prevy=3Dcurry;
+        curry=3Dcurry-&gt;next;
+    }
+    if(currx=3D=3DNULL||curry=3D=3DNULL){
+        return;
+    }
+    if(prevx!=3DNULL){
+        prevx-&gt;next=3Dcurry;
+    }
+    else{
+        *ptr=3Dcurry;
+    }
+    if(prevy!=3DNULL){
+        prevy-&gt;next=3Dcurrx;
+    }
+    else{
+        *ptr=3Dcurrx;
+    }
+    struct node *p=3Dcurry-&gt;next;
+    curry-&gt;next=3Dcurrx-&gt;next;
+    currx-&gt;next=3Dp;
+}
+void print(struct node *ptr){
+    int i=3D1;
+    while(ptr!=3DNULL){
+        printf(&quot;Value at Node[%d]:%d\n&quot;,i,ptr-&gt;data);
+        i&#43;&#43;;
+        ptr=3Dptr-&gt;next;
+    }
+}
+int main(){
+    int i,n,data,pos;
+    printf(&quot;Enter size of linked list:&quot;);
+    scanf(&quot;%d&quot;,&amp;n);
+    for(i=3D0;i&lt;n;i&#43;&#43;){
+        head=3Dcreate(head,i&#43;1);
+    }
+    print(head);
+
+    int x,y;
+    printf(&quot;Enter which number for swapping from linked list:\n&quot;)=
+;
+    printf(&quot;Enter 2 numbers:\n&quot;);
+    scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+    swap_node(&amp;head,x,y);
+    print(head);
+    return 0;
+}</pre></div>
