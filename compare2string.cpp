@@ -12,7 +12,7 @@ int compare(string s1, string s2) {
    }
        
 }
-main() {
+compare2string() {
    string s1, s2;
    cout << "Enter the first String: ";
    getline (cin,s1);
